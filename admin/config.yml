@@ -6,12 +6,13 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "paginas"
-    label: "Páginas"
+  - name: "contenido"
+    label: "Contenido de la Web"
     files:
       - file: "index.html"
-        label: "Página Principal"
+        label: "Información Principal"
         name: "index"
         fields:
-          - { label: "Título de la Web", name: "title", widget: "string" }
-          - { label: "Texto Principal", name: "body", widget: "markdown" }
+          - { label: "Título Principal", name: "title", widget: "string" }
+          - { label: "Fecha del Evento", name: "fecha", widget: "string" }
+          - { label: "Lugar", name: "lugar", widget: "string" }
