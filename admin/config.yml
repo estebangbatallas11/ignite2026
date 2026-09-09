@@ -6,13 +6,13 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "contenido"
-    label: "Contenido de la Web"
+  - name: "configuracion"
+    label: "Configuración del Sitio"
     files:
-      - file: "index.html"
-        label: "Información Principal"
-        name: "index"
+      - file: "content/settings.json"
+        label: "Textos de la Página"
+        name: "settings"
         fields:
-          - { label: "Título Principal", name: "title", widget: "string" }
-          - { label: "Fecha del Evento", name: "fecha", widget: "string" }
+          - { label: "Título del Evento", name: "titulo", widget: "string" }
+          - { label: "Fecha", name: "fecha", widget: "string" }
           - { label: "Lugar", name: "lugar", widget: "string" }
