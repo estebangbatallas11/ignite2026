@@ -1,17 +1,2 @@
-backend:
-  name: git-gateway
-  branch: main
-
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
-collections:
-  - name: "paginas"
-    label: "Páginas"
-    files:
-      - file: "gemini-code-1788914574388.html"
-        label: "Página Principal"
-        name: "index"
-        fields:
-          - { label: "Título de la Web", name: "title", widget: "string" }
-          - { label: "Texto Principal", name: "body", widget: "markdown" }
+files:
+  - file: "index.html"
