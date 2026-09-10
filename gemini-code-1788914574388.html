@@ -21,14 +21,14 @@
     html { scroll-behavior: smooth; scroll-padding-top: 88px; }
     body { margin: 0; background: var(--white); color: var(--black); font-family: Arial, Helvetica, sans-serif; overflow-x: hidden; }
 
-    /* ====== NAVEGACIÓN (SIN BOTÓN DE COMPRAR ENTRADAS) ====== */
+    /* ====== NAVEGACIÓN ====== */
     .nav { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 76px; display: flex; align-items: center; justify-content: flex-end; padding: 0 5vw; border-bottom: 1px solid rgba(0,0,0,0.1); background: rgba(255,255,255,.95); backdrop-filter: blur(10px); }
     
     .nav-links { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .nav-links a { color: var(--black); text-decoration: none; font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 8px 10px; transition: all .2s; }
     .nav-links a:hover { color: var(--red); }
 
-    /* ====== HERO SECTION (LIMPIA, SIN FOTO Y CENTRADA) ====== */
+    /* ====== HERO SECTION ====== */
     .hero { 
       min-height: 75vh; 
       margin-top: 76px; 
@@ -44,7 +44,6 @@
       border-bottom: 1px solid var(--gray-border); 
     }
 
-    /* Elementos gráficos dinámicos y limpios en el fondo */
     .hero::before { 
       content: ""; 
       position: absolute; 
@@ -98,25 +97,6 @@
     }
     .hero-info div { display: flex; flex-direction: column; align-items: center; }
     .hero-info strong { color: var(--red); text-transform: uppercase; font-size: 11px; letter-spacing: 1px; margin-bottom: 6px; }
-
-    .btn-main-buy { 
-      display: inline-flex; 
-      align-items: center; 
-      justify-content: center; 
-      background-color: var(--red); 
-      color: var(--white) !important; 
-      text-decoration: none; 
-      font-weight: 900; 
-      text-transform: uppercase; 
-      letter-spacing: 1px; 
-      padding: 16px 36px; 
-      margin-top: 35px; 
-      font-size: 15px; 
-      transition: all 0.3s ease; 
-      width: fit-content; 
-      border-radius: 4px;
-    }
-    .btn-main-buy:hover { background-color: var(--dark-red); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
     /* ====== SECCIONES BASE ====== */
     section { width: min(1180px, 90vw); margin: 0 auto; padding: 45px 0; }
@@ -178,7 +158,6 @@
     .dark-section h2 { color: var(--white); margin-bottom: 12px; }
     .dark-section p { color: #cccccc; font-size: 17px; max-width: 750px; margin: 0 auto 15px auto; line-height: 1.6; }
     
-    /* Estilo para el texto de contacto tipo párrafo */
     .contact-info-text {
       font-size: 15px;
       font-weight: normal;
@@ -257,24 +236,16 @@
           Quorum Paseo San Francisco · Quito
         </div>
       </div>
-      <a href="https://www.buenplan.com.ec/event/ignite-summit-2026-quito" target="_blank" class="btn-main-buy fade-up delay-3">Adquirir Entradas</a>
     </div>
   </header>
   
   <main>
-    <!-- ====== SECCIÓN FEATURED SPEAKERS ====== -->
+    <!-- ====== SECCIÓN FEATURED SPEAKERS (Dr. Amnon Dekel eliminado) ====== -->
     <section id="externos">
       <h2 class="fade-up">Featured Speakers</h2>
       
       <div class="speakers-list-container">
         
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Dr. Amnon Dekel</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Director Ejecutivo del Centro de Innovación y Emprendimiento ASPER-HUJI Innovate de la <strong>Universidad Hebrea de Jerusalén. Israel</strong></p>
-          </div>
-        </div>
-
         <div class="speaker-row fade-up">
           <div class="speaker-name-col">Vanessa Camargo</div>
           <div class="speaker-info-col">
