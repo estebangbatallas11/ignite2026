@@ -14,7 +14,6 @@
       --agenda-bg-gray: #f5f5f5;
       --gray-border: #d8d7d5;
       --text-soft: #4a4a4a;
-      --bg-light: #ececec;
       --bg-dark: #1a1b1f; 
     }
     
@@ -22,78 +21,85 @@
     html { scroll-behavior: smooth; scroll-padding-top: 88px; }
     body { margin: 0; background: var(--white); color: var(--black); font-family: Arial, Helvetica, sans-serif; overflow-x: hidden; }
 
-    /* ====== NAVEGACIÓN ADAPTABLE ====== */
-    .nav { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 76px; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; border-bottom: 1px solid rgba(0,0,0,0.1); background: rgba(255,255,255,.95); backdrop-filter: blur(10px); }
-    .brand { font-weight: 900; font-size: 22px; text-transform: uppercase; text-decoration: none; color: var(--black); letter-spacing: -0.5px; display: flex; align-items: center; gap: 3px; }
-    .brand .red-dot { display: inline-block; width: 6px; height: 6px; background-color: var(--red); border-radius: 50%; margin-left: 1px; }
+    /* ====== NAVEGACIÓN SIN LOGO ====== */
+    .nav { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 76px; display: flex; align-items: center; justify-content: flex-end; padding: 0 5vw; border-bottom: 1px solid rgba(0,0,0,0.1); background: rgba(255,255,255,.95); backdrop-filter: blur(10px); }
     
-    .nav-links { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .nav-links { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .nav-links a { color: var(--black); text-decoration: none; font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 8px 10px; transition: all .2s; }
     .nav-links a:not(.btn-nav-buy):hover { color: var(--red); }
     .btn-nav-buy { background-color: var(--red); color: var(--white) !important; border-radius: 4px; margin-left: 5px; padding: 9px 14px !important; }
     .btn-nav-buy:hover { background-color: var(--dark-red); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(218, 33, 40, 0.3); }
 
-    /* ====== HERO SECTION (PORTADA ANTERIOR CON DIAGONALES ESTRECHAS) ====== */
+    /* ====== HERO SECTION (LIMPIA, SIN FOTO Y CENTRADA) ====== */
     .hero { 
-      min-height: 85vh; 
+      min-height: 75vh; 
       margin-top: 76px; 
-      padding: 10vw 7vw 8vw; 
+      padding: 6vw 5vw; 
       position: relative;
       display: flex; 
       flex-direction: column; 
+      align-items: center;
       justify-content: center; 
-      background-color: var(--bg-light);
-      background-image: radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 100%);
+      text-align: center;
+      background-color: #fafafa;
       overflow: hidden; 
       border-bottom: 1px solid var(--gray-border); 
     }
 
-    /* Franjas diagonales más estrechas a la derecha */
+    /* Elementos gráficos dinámicos y limpios en el fondo */
     .hero::before { 
       content: ""; 
       position: absolute; 
-      top: -10%; 
-      right: 22%; 
-      width: 25vw; 
-      height: 120%; 
-      background-color: var(--red); 
+      top: -20%; 
+      left: 10%; 
+      width: 15vw; 
+      height: 140%; 
+      background-color: rgba(218, 33, 40, 0.03); 
       transform: skewX(-18deg); 
       z-index: 1; 
-      animation: slideInRight 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
     .hero::after { 
       content: ""; 
       position: absolute; 
-      top: -10%; 
-      right: 2%; 
-      width: 22vw; 
-      height: 120%; 
-      background-color: var(--dark-red); 
+      top: -20%; 
+      right: 10%; 
+      width: 15vw; 
+      height: 140%; 
+      background-color: rgba(51, 6, 8, 0.03); 
       transform: skewX(-18deg); 
       z-index: 1; 
-      animation: slideInRight 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
 
-    @keyframes slideInRight {
-      from { transform: skewX(-18deg) translateX(100px); opacity: 0; }
-      to { transform: skewX(-18deg) translateX(0); opacity: 1; }
+    .hero-content { 
+      position: relative; 
+      z-index: 10; 
+      max-width: 800px; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
     }
-
-    .hero-content { position: relative; z-index: 10; max-width: 650px; display: flex; flex-direction: column; }
     
     h1 { 
       font-family: Impact, "Arial Black", sans-serif; 
-      font-size: clamp(60px, 10vw, 130px); 
+      font-size: clamp(50px, 8vw, 100px); 
       text-transform: uppercase; 
       margin: 0; 
-      line-height: 0.88; 
+      line-height: 0.9; 
       letter-spacing: -1px; 
     }
     h1 span { color: var(--red); }
     
-    .hero-info { display: flex; flex-wrap: wrap; gap: 20px 40px; margin-top: 35px; font-weight: 900; font-size: 15px; }
-    .hero-info div { display: flex; flex-direction: column; }
-    .hero-info strong { color: var(--red); text-transform: uppercase; font-size: 11px; letter-spacing: 1px; margin-bottom: 4px; }
+    .hero-info { 
+      display: flex; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+      gap: 30px 50px; 
+      margin-top: 35px; 
+      font-weight: 900; 
+      font-size: 15px; 
+    }
+    .hero-info div { display: flex; flex-direction: column; align-items: center; }
+    .hero-info strong { color: var(--red); text-transform: uppercase; font-size: 11px; letter-spacing: 1px; margin-bottom: 6px; }
 
     .btn-main-buy { 
       display: inline-flex; 
@@ -105,73 +111,74 @@
       font-weight: 900; 
       text-transform: uppercase; 
       letter-spacing: 1px; 
-      padding: 16px 32px; 
+      padding: 16px 36px; 
       margin-top: 35px; 
       font-size: 15px; 
       transition: all 0.3s ease; 
       width: fit-content; 
       border-radius: 4px;
     }
-    .btn-main-buy:hover { background-color: var(--dark-red); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+    .btn-main-buy:hover { background-color: var(--dark-red); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
     /* ====== SECCIONES BASE ====== */
-    section { width: min(1180px, 90vw); margin: 0 auto; padding: 80px 0; }
-    .section-kicker { color: var(--red); text-transform: uppercase; font-size: 12px; font-weight: 900; letter-spacing: .16em; margin: 0 0 8px; display: block; }
-    h2 { font-family: Impact, sans-serif; font-size: clamp(32px, 5vw, 60px); text-transform: uppercase; margin: 0 0 25px 0; }
-    .section-copy { max-width: 650px; color: var(--text-soft); line-height: 1.55; margin: 0 0 35px 0; font-size: 15px; }
+    section { width: min(1180px, 90vw); margin: 0 auto; padding: 45px 0; }
+    h2 { font-family: Impact, sans-serif; font-size: clamp(32px, 5vw, 60px); text-transform: uppercase; margin: 0 0 20px 0; }
 
-    /* ====== CONTROLES AGENDA ====== */
-    .stage-toggles { display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
-    .stage-btn { padding: 12px 24px; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: 1px solid var(--black); transition: all 0.2s ease; }
-    .stage-btn.main-btn { background-color: #e0e0e0; color: var(--black); }
-    .stage-btn.satellite-btn { background-color: var(--red); color: var(--white); border-color: var(--red); }
-    .stage-btn.active { box-shadow: 0 0 0 3px var(--black); transform: translateY(-2px); }
-    .stage-btn:not(.active) { opacity: 0.6; }
+    /* ====== FORMATO SPEAKERS ====== */
+    .speakers-list-container { display: flex; flex-direction: column; gap: 10px; }
+    .speaker-row { display: grid; grid-template-columns: 280px 1fr; gap: 10px; }
+    .speaker-name-col { background-color: var(--red); color: var(--white); display: flex; align-items: center; justify-content: center; padding: 15px; font-size: 14px; font-weight: bold; text-align: center; word-break: break-word; }
+    .speaker-info-col { background-color: var(--agenda-bg-gray); padding: 15px 20px; display: flex; flex-direction: column; justify-content: center; border-left: 4px solid transparent; transition: border-color 0.3s; }
+    .speaker-row:hover .speaker-info-col { border-left-color: var(--red); }
+    .speaker-role-text { font-size: 14px; color: var(--text-soft); line-height: 1.5; word-break: break-word; margin: 0; }
 
-    /* ====== TABLA AGENDA ADAPTABLE ====== */
-    .agenda-container { display: flex; flex-direction: column; gap: 12px; }
-    .agenda-separator { background-color: var(--agenda-teal); color: var(--white); text-align: center; padding: 14px 15px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; margin: 10px 0; }
-    .agenda-row { display: grid; grid-template-columns: 220px 1fr; gap: 12px; }
-    .time-col { background-color: var(--red); color: var(--white); display: flex; align-items: center; justify-content: center; padding: 18px 15px; font-size: 14px; font-weight: bold; text-align: center; word-break: break-word; }
-    .details-col { background-color: var(--agenda-bg-gray); padding: 18px 20px; display: flex; flex-direction: column; justify-content: center; border-left: 4px solid transparent; transition: border-color 0.3s; }
-    .agenda-row:hover .details-col { border-left-color: var(--red); }
+    /* ====== FORMATO PANELES (LOGOS EN 3 COLUMNAS) ====== */
+    .logos-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
 
-    .act-title { font-size: 15px; color: var(--black); margin: 0 0 6px 0; font-weight: bold; line-height: 1.3; }
-    .act-speaker-container { display: flex; align-items: flex-start; gap: 8px; margin-top: 4px; }
-    .agenda-icon { width: 15px; height: 15px; fill: var(--red); flex-shrink: 0; margin-top: 2px; }
-    .act-speaker-text { font-size: 14px; color: var(--text-soft); line-height: 1.5; word-break: break-word; }
+    .logo-item {
+      background-color: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 10px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
 
-    .panel-title { font-size: 16px; color: var(--agenda-teal); margin: 0 0 10px 0; font-weight: bold; line-height: 1.3; }
-    .panel-role { font-size: 15px; color: var(--red); font-weight: bold; margin: 10px 0 6px 0; }
-    .panel-person { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
-    
-    .main-stage-link { color: var(--agenda-teal); font-weight: 900; }
-    .track-satellite { display: none; }
+    .logo-item img {
+      max-width: 95%;
+      max-height: 160px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+      transition: transform 0.3s ease;
+    }
 
-    /* ====== SECCIÓN CONFERENCISTAS ADAPTABLE ====== */
-    .speaker-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 30px; }
-    .speaker-card { display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease; }
-    .speaker-card:hover { transform: translateY(-5px); }
-    .speaker-img-wrapper { width: 100%; aspect-ratio: 3/4; overflow: hidden; margin-bottom: 15px; border: 3px solid var(--red); }
-    .speaker-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-    .speaker-card h3 { font-size: 17px; font-weight: 700; color: var(--agenda-teal); margin: 0 0 6px 0; line-height: 1.2; text-transform: uppercase; }
-    .speaker-card p { margin: 0; color: var(--red); font-size: 13px; line-height: 1.4; }
+    .logo-item img.logo-ampliado { max-width: 100%; max-height: 185px; }
+    .logo-item img.logo-cme { max-width: 80%; max-height: 130px; }
 
-    /* ====== SECCIÓN TARIFAS ADAPTABLE ====== */
-    .dark-section { background-color: var(--bg-dark); color: var(--white); width: 100%; padding: 80px 0; }
-    .dark-section .container { width: min(1180px, 90vw); margin: 0 auto; }
-    .dark-section h2 { color: var(--white); }
-    .dark-section .section-kicker { color: #f5f5f5; opacity: 0.7; }
-    .pricing-list { display: flex; flex-direction: column; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 30px; }
-    .price-row { display: flex; justify-content: space-between; gap: 30px; padding: 30px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s; }
-    .price-row:hover { background-color: rgba(255, 255, 255, 0.03); }
-    .price-info { flex: 1; max-width: 700px; }
-    .price-info h3 { font-size: 18px; font-weight: normal; margin: 0 0 10px 0; color: #e0e0e0; }
-    .price-info p { margin: 0; color: #a0a0a0; font-size: 14px; line-height: 1.5; }
-    .price-cost { text-align: right; min-width: 110px; }
-    .price-cost .amount { font-size: 20px; font-weight: bold; color: var(--white); margin-bottom: 4px; }
-    .price-cost .tax { font-size: 13px; color: #888; }
-    .pricing-cta { text-align: center; margin-top: 40px; display: flex; justify-content: center; }
+    .logo-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--red);
+      box-shadow: 0 12px 30px rgba(218, 33, 40, 0.15);
+    }
+
+    .logo-item img:hover { transform: scale(1.06); }
+
+    /* ====== SECCIÓN ALUMNI SYNERGY FORUM (OSCURA) ====== */
+    .dark-section { background-color: var(--bg-dark); color: var(--white); width: 100%; padding: 60px 0; }
+    .dark-section .container { width: min(1180px, 90vw); margin: 0 auto; text-align: center; }
+    .dark-section h2 { color: var(--white); margin-bottom: 12px; }
+    .dark-section p { color: #cccccc; font-size: 17px; max-width: 750px; margin: 0 auto 25px auto; line-height: 1.6; }
 
     /* ====== ANIMACIONES GENERALES ====== */
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -181,43 +188,41 @@
     .delay-3 { transition-delay: 0.4s; }
 
     /* Footer */
-    footer { background: var(--black); color: white; padding: 35px 5vw; font-weight: bold; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; text-align: center; }
+    footer { background: var(--black); color: white; padding: 30px 5vw; font-weight: bold; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; text-align: center; }
 
     /* ====== BREAKPOINTS MÓVILES EXACTOS ====== */
+    @media(max-width: 900px) {
+      .logos-container { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media(max-width: 768px) {
-      .hero::before { right: -15%; width: 55vw; }
-      .hero::after { right: -45vw; width: 50vw; }
-      .nav { padding: 0 4vw; height: 68px; }
-      .brand { font-size: 18px; }
+      .nav { padding: 0 4vw; height: 68px; justify-content: center; }
       .nav-links a { font-size: 10px; padding: 6px 6px; }
       .btn-nav-buy { padding: 8px 10px !important; margin-left: 2px; }
       
-      .hero { margin-top: 68px; padding: 18vw 6vw 14vw; min-height: 75vh; }
-      .hero-info { gap: 15px 30px; font-size: 14px; }
+      .hero { margin-top: 68px; padding: 10vw 6vw; min-height: 60vh; }
+      .hero-info { gap: 20px 30px; font-size: 14px; }
       
-      section { padding: 60px 0; }
+      section { padding: 40px 0; }
       
-      .agenda-row { grid-template-columns: 1fr; gap: 4px; }
-      .time-col { padding: 12px; justify-content: flex-start; text-align: left; }
-
-      .price-row { flex-direction: column; gap: 12px; padding: 25px 0; }
-      .price-cost { text-align: left; }
+      .speaker-row { grid-template-columns: 1fr; gap: 4px; }
+      .speaker-name-col { padding: 12px; justify-content: flex-start; text-align: left; }
     }
   </style>
 </head>
 <body>
 
   <nav class="nav">
-    <a href="#" class="brand">IGNITE<span class="red-dot"></span></a>
     <div class="nav-links">
-      <a href="#agenda">Agenda</a>
-      <a href="#conferencistas">Conferencistas</a>
-      <a href="#tarifas">Tarifas</a>
+      <a href="#externos">Featured Speakers</a>
+      <a href="#usfq">Speakers USFQ</a>
+      <a href="#paneles">Paneles Temáticos</a>
+      <a href="#alumni">Alumni Synergy Forum</a>
       <a href="https://www.buenplan.com.ec/event/ignite-summit-2026-quito" target="_blank" class="btn-nav-buy">Comprar Entradas</a>
     </div>
   </nav>
   
-  <!-- ====== PORTADA ORIGINAL RESTAURADA ====== -->
+  <!-- HERO LIMPIO, CENTRADO Y DINÁMICO (SIN FOTO DE FONDO) -->
   <header class="hero">
     <div class="hero-content">
       <h1 class="fade-up delay-1">
@@ -231,6 +236,10 @@
           29 de septiembre de 2026
         </div>
         <div>
+          <strong>HORA</strong>
+          8:00 AM - 7:00 PM
+        </div>
+        <div>
           <strong>LUGAR</strong>
           Quorum Paseo San Francisco · Quito
         </div>
@@ -240,459 +249,125 @@
   </header>
   
   <main>
-    <section id="agenda">
-      <h2 class="fade-up">Agenda</h2>
+    <!-- ====== SECCIÓN FEATURED SPEAKERS ====== -->
+    <section id="externos">
+      <h2 class="fade-up">Featured Speakers</h2>
       
-      <div class="stage-toggles fade-up">
-        <button class="stage-btn main-btn active" onclick="switchStage('main')">MAIN</button>
-        <button class="stage-btn satellite-btn" onclick="switchStage('satellite')">SATELLITE</button>
-      </div>
-      
-      <div class="agenda-container">
-
-        <div class="agenda-row track-shared fade-up">
-          <div class="time-col">8:00 a.m. – 8:30 a.m.</div>
-          <div class="details-col"><p class="act-title">Inicio de registro</p></div>
-        </div>
-
-        <div class="agenda-separator track-shared fade-up">Apertura del Summit</div>
-
-        <!-- ====== BLOQUES MAIN STAGE ====== -->
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">8:30 a.m. – 9:00 a.m.</div>
-          <div class="details-col">
-            <p class="act-title">Apertura oficial y palabras de bienvenida.</p>
-            <div class="act-speaker-container">
-              <svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <div class="act-speaker-text">Diego Quiroga, Rector de la Universidad San Francisco de Quito.</div>
-            </div>
-            <div class="act-speaker-container">
-              <svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <div class="act-speaker-text">Franklin Velasco, Director de Relación con la Empresa de la Universidad San Francisco de Quito.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">9:00 a.m. – 9:30 a.m.</div>
-          <div class="details-col">
-            <p class="act-title">Conferencia</p>
-            <div class="act-speaker-container">
-              <svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <div class="act-speaker-text">Pablo Lucio Paredes, Director Instituto de Economía de la Universidad San Francisco de Quito.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">9:30 a.m. – 10:15 a.m.</div>
-          <div class="details-col">
-            <p class="panel-title">Cámara de Industrias y Producción (CIP): Deuda sin fronteras: refinanciamiento pospandémico, hyperscalers y oportunidades para los mercados de capitales andinos.</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Paul Grijalva, director de Finanzas Corporativas del Banco de Crédito del Perú, BCP, Lima, Perú.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Cuervo, Chief Investment Officer, Sura Investments, Bogotá, Colombia.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Yovana Enríquez, Gerente Central de Finanzas Caja Cusco, Perú.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">John Sarmiento, Director Distrital de Crédito Público de Bogotá, Bogotá Colombia.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Alejandro Gómez Villegas, Presidente Aval Fiduciaria Asset Management.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">10:15 a.m. – 11:00 a.m.</div>
-          <div class="details-col">
-            <p class="act-title">Alejandro Gómez Villegas, Presidente Aval Fiduciaria Asset Management.</p>
-            <div class="act-speaker-container"><div class="act-speaker-text">Invitado especial por confirmar</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">11:00 a.m. – 11:30 a.m.</div>
-          <div class="details-col">
-            <p class="act-title">Conferencia</p>
-            <div class="act-speaker-container"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Juan Esteban Jijón, Vicepresidente Segmento Pyme de PRODUBANCO - Grupo Promerica.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">11:30 a.m. – 12:15 p.m.</div>
-          <div class="details-col">
-            <p class="panel-title">Cámara de Comercio Ecuatoriano-Americana (AMCHAM): De lo local a lo global: flujos globales en el mercado de acciones regional, ETFs y listados duales en nuam.</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Hugo Rubio, CEO BTG Pactual Corredora de Bolsa, Chile.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Miguel Bello, Investor Relations Officer, GeoPark, Dallas, Estados Unidos.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Ramírez, Director Ejecutivo Investigación de Índices y Head de MSCI en Monterrey, México.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Borja García Fernández, Senior Sustainable Finance Specialist, Financial Institutions Group, IFC, Londres, Reino Unido.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">12:15 p.m. – 12:30 p.m.</div>
-          <div class="details-col"><p class="act-title">Manabi Development & Investment Corporation (MDI CORP.)</p></div>
-        </div>
-
-        <!-- ====== BLOQUES SATELLITE STAGE ====== -->
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">8:30 a.m. – 9:00 a.m.</div>
-          <div class="details-col"><p class="act-title">Apertura del Summit (<span class="main-stage-link">MAIN STAGE</span>)</p></div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">9:00 a.m. – 9:45 a.m.</div>
-          <div class="details-col">
-            <p class="panel-title">Cámara de Comercio e Industrias Ecuatoriano-Israelí (CICEI): Deuda sin fronteras...</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Paul Grijalva, director de Finanzas Corporativas del Banco de Crédito del Perú, BCP, Lima, Perú.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Cuervo, Chief Investment Officer, Sura Investments, Bogotá, Colombia.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Yovana Enríquez, Gerente Central de Finanzas Caja Cusco, Perú.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">John Sarmiento, Director Distrital de Crédito Público de Bogotá, Bogotá Colombia.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Alejandro Gómez Villegas, Presidente Aval Fiduciaria Asset Management.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">9:45 a.m. – 10:15 a.m.</div>
-          <div class="details-col"><p class="act-title">North Highland</p></div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">10:15 a.m. – 11:00 a.m.</div>
-          <div class="details-col"><p class="act-title"><span class="main-stage-link">MAIN STAGE</span></p></div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">11:00 a.m. – 11:45 a.m.</div>
-          <div class="details-col">
-            <p class="panel-title">Asociación Ecuatoriana de Capital Privado (ECUACAP): De lo local a lo global...</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Hugo Rubio, CEO BTG Pactual Corredora de Bolsa, Chile.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Miguel Bello, Investor Relations Officer, GeoPark, Dallas, Estados Unidos.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Ramírez, Director Ejecutivo Investigación de Índices y Head de MSCI en Monterrey, México.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Borja García Fernández, Senior Sustainable Finance Specialist, Financial Institutions Group, IFC, Londres, Reino Unido.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">11:45 a.m. – 12:30 p.m.</div>
-          <div class="details-col">
-            <p class="panel-title">USFQ (Comunidades): De lo local a lo global: flujos globales en el mercado de acciones regional, ETFs y listados duales en nuam.</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Hugo Rubio, CEO BTG Pactual Corredora de Bolsa, Chile.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Miguel Bello, Investor Relations Officer, GeoPark, Dallas, Estados Unidos.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Ramírez, Director Ejecutivo Investigación de Índices y Head de MSCI en Monterrey, México.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Borja García Fernández, Senior Sustainable Finance Specialist, Financial Institutions Group, IFC, Londres, Reino Unido.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-separator track-shared fade-up">12:30 P.M. – 2:00 P.M. ALMUERZO Y ESPACIOS DE CONEXIÓN</div>
-
-        <!-- ====== TARDE MAIN STAGE ====== -->
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">2:00 p.m. – 2:45 p.m.</div>
-          <div class="details-col">
-            <p class="panel-title">SERTECPEC<br>Cámara de Industrias y Comercio Ecuatoriano-Británica (BRITCHAM): De lo local a lo global: flujos globales en el mercado de acciones regional, ETFs y listados duales en nuam.</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Hugo Rubio, CEO BTG Pactual Corredora de Bolsa, Chile.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Miguel Bello, Investor Relations Officer, GeoPark, Dallas, Estados Unidos.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Ramírez, Director Ejecutivo Investigación de Índices y Head de MSCI en Monterrey, México.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Borja García Fernández, Senior Sustainable Finance Specialist, Financial Institutions Group, IFC, Londres, Reino Unido.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">2:45 p.m. – 3:30 p.m.</div>
-          <div class="details-col">
-            <p class="panel-title">Panel pendiente #1</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Hugo Rubio, CEO BTG Pactual Corredora de Bolsa, Chile.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Miguel Bello, Investor Relations Officer, GeoPark, Dallas, Estados Unidos.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Ramírez, Director Ejecutivo Investigación de Índices y Head de MSCI en Monterrey, México.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Borja García Fernández, Senior Sustainable Finance Specialist, Financial Institutions Group, IFC, Londres, Reino Unido.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">3:30 p.m. – 4:00 p.m.</div>
-          <div class="details-col">
-            <p class="act-title">Conferencia</p>
-            <div class="act-speaker-container">
-              <svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <div class="act-speaker-text">Carlos Montúfar, Presidente del Consejo de Regentes de la Universidad San Francisco de Quito.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">4:00 p.m. – 4:45 p.m.</div>
-          <div class="details-col">
-            <p class="panel-title">Cámara de la Pequeña y Mediana Empresa de Pichincha (CAPEIPI): De lo local a lo global: flujos globales en el mercado de acciones regional, ETFs y listados duales en nuam.</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Hugo Rubio, CEO BTG Pactual Corredora de Bolsa, Chile.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Miguel Bello, Investor Relations Officer, GeoPark, Dallas, Estados Unidos.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Ramírez, Director Ejecutivo Investigación de Índices y Head de MSCI en Monterrey, México.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Borja García Fernández, Senior Sustainable Finance Specialist, Financial Institutions Group, IFC, Londres, Reino Unido.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">4:45 p.m. – 5:15 p.m.</div>
-          <div class="details-col">
-            <p class="act-title">Conferencia</p>
-            <div class="act-speaker-container">
-              <svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <div class="act-speaker-text">Gonzalo Belenguer, Director General, REDIT-Red de Institutos Tecnológicos de la Comunitat Valenciana. España</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">5:15 p.m. – 6:00 p.m.</div>
-          <div class="details-col">
-            <p class="panel-title">Cámara de Minería del Ecuador (CME): De lo local a lo global: flujos globales en el mercado de acciones regional, ETFs y listados duales en nuam.</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Hugo Rubio, CEO BTG Pactual Corredora de Bolsa, Chile.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Miguel Bello, Investor Relations Officer, GeoPark, Dallas, Estados Unidos.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Ramírez, Director Ejecutivo Investigación de Índices y Head de MSCI en Monterrey, México.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Borja García Fernández, Senior Sustainable Finance Specialist, Financial Institutions Group, IFC, Londres, Reino Unido.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">6:00 p.m. – 6:45 p.m.</div>
-          <div class="details-col">
-            <p class="act-title">Conferencia</p>
-            <div class="act-speaker-container">
-              <svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <div class="act-speaker-text">Vanessa Camargo, Product Marketing Manager - Google AI Community de Google. Brasil</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ====== TARDE SATELLITE STAGE ====== -->
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">2:00 p.m. – 2:45 p.m.</div>
-          <div class="details-col"><p class="act-title">Panel pendiente #1</p></div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">2:45 p.m. – 3:15 p.m.</div>
-          <div class="details-col">
-            <p class="act-title">Conferencia</p>
-            <div class="act-speaker-container">
-              <svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <div class="act-speaker-text">Belén Carrión, Head of People en DeUna.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">3:15 p.m. – 4:00 p.m.</div>
-          <div class="details-col"><p class="act-title">Panel pendiente #2</p></div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">4:00 p.m. – 4:30 p.m.</div>
-          <div class="details-col"><p class="act-title">Moonshot pendiente #3</p></div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">4:45 p.m. – 5:15 p.m.</div>
-          <div class="details-col">
-            <p class="panel-title">Cámara Nacional de Acuacultura (CNA): De lo local a lo global: flujos globales en el mercado de acciones regional, ETFs y listados duales en nuam.</p>
-            <div class="panel-role">Panelistas:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Hugo Rubio, CEO BTG Pactual Corredora de Bolsa, Chile.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Miguel Bello, Investor Relations Officer, GeoPark, Dallas, Estados Unidos.</div></div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">César Ramírez, Director Ejecutivo Investigación de Índices y Head de MSCI en Monterrey, México.</div></div>
-            <div class="panel-role">Modera:</div>
-            <div class="panel-person"><svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="act-speaker-text">Borja García Fernández, Senior Sustainable Finance Specialist, Financial Institutions Group, IFC, Londres, Reino Unido.</div></div>
-          </div>
-        </div>
-
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">5:15 p.m. – 6:00 p.m.</div>
-          <div class="details-col"><p class="act-title">Panel pendiente #4</p></div>
-        </div>
+      <div class="speakers-list-container">
         
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">6:00 p.m. – 6:45 p.m.</div>
-          <div class="details-col"><p class="act-title"><span class="main-stage-link">MAIN STAGE</span></p></div>
-        </div>
-
-        <div class="agenda-separator track-shared fade-up">Cierre del Summit</div>
-
-        <div class="agenda-row track-main fade-up">
-          <div class="time-col">6:45 p.m. – 7:00 p.m.</div>
-          <div class="details-col">
-            <div class="act-speaker-container">
-              <svg class="agenda-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <div class="act-speaker-text">Franklin Velasco, Director de Relación con la Empresa de la Universidad San Francisco de Quito</div>
-            </div>
+        <div class="speaker-row fade-up">
+          <div class="speaker-name-col">Dr. Amnon Dekel</div>
+          <div class="speaker-info-col">
+            <p class="speaker-role-text">Director Ejecutivo del Centro de Innovación y Emprendimiento ASPER-HUJI Innovate de la <strong>Universidad Hebrea de Jerusalén. Israel</strong></p>
           </div>
         </div>
 
-        <div class="agenda-row track-satellite fade-up">
-          <div class="time-col">6:45 p.m. – 7:00 p.m.</div>
-          <div class="details-col"><p class="act-title"><span class="main-stage-link">MAIN STAGE</span></p></div>
+        <div class="speaker-row fade-up">
+          <div class="speaker-name-col">Vanessa Camargo</div>
+          <div class="speaker-info-col">
+            <p class="speaker-role-text">Product Marketing Manager de <strong>Google</strong></p>
+          </div>
+        </div>
+
+        <div class="speaker-row fade-up">
+          <div class="speaker-name-col">Gonzalo Belenguer</div>
+          <div class="speaker-info-col">
+            <p class="speaker-role-text">Director General de <strong>REDIT-Red de Institutos Tecnológicos de la Comunitat Valenciana. España</strong></p>
+          </div>
+        </div>
+
+        <div class="speaker-row fade-up">
+          <div class="speaker-name-col">Juan Esteban Jijón</div>
+          <div class="speaker-info-col">
+            <p class="speaker-role-text">Vicepresidente de Segmento Pyme de <strong>PRODUBANCO - Grupo Promerica</strong></p>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ====== SECCIÓN CONFERENCISTAS ====== -->
-    <section id="conferencistas">
-      <span class="section-kicker fade-up">VOCES QUE INSPIRAN</span>
-      <h2 class="fade-up">CONFERENCISTAS</h2>
+    <!-- ====== SECCIÓN SPEAKERS USFQ ====== -->
+    <section id="usfq">
+      <h2 class="fade-up">Speakers USFQ</h2>
       
-      <div class="speaker-grid fade-up delay-2">
-        <article class="speaker-card">
-          <div class="speaker-img-wrapper"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGH8KWOosg-0g/profile-displayphoto-crop_800_800/B4DZzAiyzoIwAI-/0/1772756873768?e=1790208000&v=beta&t=IHyxds4_f3XujhIOe51DmVDXmtJRFvleVfX1SGkK87U" alt="Vanessa Camargo"></div>
-          <h3>Vanessa Camargo</h3>
-          <p>Product Marketing Manager - Google AI Community de Google. Brasil</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-img-wrapper"><img src="https://www.usfq.edu.ec/sites/default/files/styles/full_content_profile_picture_800x800_/public/2023-09/carlos-montufar-002.jpg?itok=mJ_utQbh" alt="Carlos Montúfar"></div>
-          <h3>Carlos Montúfar</h3>
-          <p>Presidente del Consejo de Regentes de la Universidad San Francisco de Quito</p>
-        </article>
+      <div class="speakers-list-container">
         
-        <article class="speaker-card">
-          <div class="speaker-img-wrapper"><img src="https://www.usfq.edu.ec/sites/default/files/styles/full_content_profile_picture_800x800_/public/2023-12/pablo-lucio-paredes-fernandes.jpg?itok=NT7AQiSX" alt="Pablo Lucio Paredes"></div>
-          <h3>Pablo Lucio Paredes</h3>
-          <p>Director Instituto de Economía de la Universidad San Francisco de Quito</p>
-        </article>
+        <div class="speaker-row fade-up">
+          <div class="speaker-name-col">Carlos Montúfar</div>
+          <div class="speaker-info-col">
+            <p class="speaker-role-text">Presidente del Consejo de Regentes de la <strong>Universidad San Francisco de Quito</strong></p>
+          </div>
+        </div>
 
-        <article class="speaker-card">
-          <div class="speaker-img-wrapper"><img src="https://media.licdn.com/dms/image/v2/D4E03AQFjk3vUY8i1Hg/profile-displayphoto-crop_800_800/B4EZ4.XbYkGwAI-/0/1779162789949?e=1790208000&v=beta&t=HnnJQSnSbdYb7GRDkxRrbJTQgN-LKCZ-bT7fo7BLy9Y" alt="Juan Esteban Jijón"></div>
-          <h3>Juan Esteban Jijón</h3>
-          <p>Vicepresidente | Segmento Pyme de PRODUBANCO - Grupo Promerica</p>
-        </article>
+        <div class="speaker-row fade-up">
+          <div class="speaker-name-col">Pablo Lucio Paredes</div>
+          <div class="speaker-info-col">
+            <p class="speaker-role-text">Director Instituto de Economía de la <strong>Universidad San Francisco de Quito</strong></p>
+          </div>
+        </div>
 
-        <article class="speaker-card">
-          <div class="speaker-img-wrapper"><img src="https://media.licdn.com/dms/image/v2/C5603AQF0CZ2duP-ENg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517690173095?e=1790208000&v=beta&t=WYBtzJTxk9bc9fuWWUmNnxCC5zSkwNsX-9c0uU8KRpg" alt="Gonzalo Belenguer"></div>
-          <h3>Gonzalo Belenguer</h3>
-          <p>Director General, REDIT-Red de Institutos Tecnológicos de la Comunitat Valenciana. España</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-img-wrapper"><img src="https://media.licdn.com/dms/image/v2/D4E03AQGWL0HUSE1XEA/profile-displayphoto-crop_800_800/B4EZ_vK4gYIkAI-/0/1786424036300?e=1790208000&v=beta&t=B3xCYUb82HSDIl5CmzHWPVUXUePT1vzXjWbV2ScCIHk" alt="Belén Carrión"></div>
-          <h3>Belén Carrión</h3>
-          <p>Head of People en DeUna</p>
-        </article>
       </div>
     </section>
 
-    <!-- ====== SECCIÓN TARIFAS ====== -->
-    <section id="tarifas" class="dark-section">
+    <!-- ====== SECCIÓN PANELES TEMÁTICOS (LOGOS EN 3 COLUMNAS) ====== -->
+    <section id="paneles">
+      <h2 class="fade-up">Paneles Temáticos</h2>
+      
+      <div class="logos-container">
+        <!-- CIP -->
+        <div class="logo-item fade-up delay-1">
+          <img src="https://www.cip.org.ec/wp-content/uploads/2020/07/cip-logo-nl-1080x675.png" alt="Cámara de Industrias y Producción (CIP)" />
+        </div>
+        <!-- AMCHAM -->
+        <div class="logo-item fade-up delay-2">
+          <img src="https://www.amchamc.com/wp-content/uploads/2024/06/amcham-ecuador.webp" alt="AMCHAM Ecuador" class="logo-ampliado" />
+        </div>
+        <!-- BRITCHAM -->
+        <div class="logo-item fade-up delay-3">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS314wuYyYlJUIKCr_OQX9uYTEa-RpRyNXZotGepUdhd2Bur9rbFdrvuck&s=10" alt="Cámara Ecuatoriano Británica (BRITCHAM)" class="logo-ampliado" />
+        </div>
+        <!-- CAPEIPI -->
+        <div class="logo-item fade-up delay-1">
+          <img src="https://capeipi.org.ec/wp-content/uploads/2025/01/CAPEIPI-logo.svg" alt="CAPEIPI" />
+        </div>
+        <!-- CME -->
+        <div class="logo-item fade-up delay-2">
+          <img src="https://i0.wp.com/corpei.org/wp-content/uploads/2022/04/Logo_CME-WEB-1.png?resize=660%2C643&ssl=1" alt="Cámara de Minería del Ecuador (CME)" class="logo-cme" />
+        </div>
+        <!-- CICEI -->
+        <div class="logo-item fade-up delay-3">
+          <img src="https://static.wixstatic.com/media/d3c038_1f75becc03a54b34b19360d6283cf9f6~mv2.jpg" alt="Cámara de Innovación y Comercio Ecuatoriano-Israelí (CICEI)" />
+        </div>
+        <!-- ECUACAP -->
+        <div class="logo-item fade-up delay-1">
+          <img src="https://static1.squarespace.com/static/667d8625c1ef8c7fb1f30d5c/t/667d990075b9de553db88cdd/1780432475636/Logo+ECUACAP+colores+%283%29.png?format=1500w" alt="Asociación Ecuatoriana de Capital Privado (ECUACAP)" />
+        </div>
+        <!-- SERTECPET -->
+        <div class="logo-item fade-up delay-2">
+          <img src="https://sertecpet.hiringroom.com/data/accounts/sertecpet/vacancies/1f890e9aa6da073cb568a3c8ba4ac4a5.png" alt="SERTECPET" />
+        </div>
+        <!-- LOGO ADICIONAL CONVENIO -->
+        <div class="logo-item fade-up delay-3">
+          <img src="https://sustainableshrimppartnership.org/wp-content/uploads/2026/06/logos-convenio-02-1-1024x332.png" alt="Convenio Adicional" class="logo-ampliado" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECCIÓN ALUMNI SYNERGY FORUM ====== -->
+    <section id="alumni" class="dark-section">
       <div class="container">
-        <span class="section-kicker fade-up">LOCALIDADES</span>
-        <h2 class="fade-up">TARIFAS</h2>
-        <div class="pricing-list">
-          <div class="price-row fade-up delay-1">
-            <div class="price-info">
-              <h3>Ignite Summit Publico General</h3>
-              <p>Acceso al Main Stage, al Satellite Stage, a la zona general de networking y a la app MT3 Attendee, para consultar la agenda y generar reuniones estratégicas con empresas y líderes empresariales, potenciales estudiantes o proveedores.</p>
-            </div>
-            <div class="price-cost">
-              <div class="amount">$30,00</div>
-              <div class="tax">+ $4,50 IVA</div>
-            </div>
-          </div>
-          <div class="price-row fade-up delay-2">
-            <div class="price-info">
-              <h3>VIP Experience</h3>
-              <p>Acceso VIP al Main Stage y Satellite Stage, zona exclusiva de networking y app MT3 Attendee para agendar reuniones y conectar con participantes de IGNITE y ALUMNI SINERGY FORUM</p>
-            </div>
-            <div class="price-cost">
-              <div class="amount">$100,00</div>
-              <div class="tax">+ $15,00 IVA</div>
-            </div>
-          </div>
-          <div class="price-row fade-up delay-3">
-            <div class="price-info">
-              <h3>Vip Full Experience</h3>
-              <p>Experiencia VIP completa: acceso preferencial, networking exclusivo, app MT3 Attendee y entrada al Long Table Dinner con líderes del ecosistema de innovación.</p>
-            </div>
-            <div class="price-cost">
-              <div class="amount">$220,00</div>
-              <div class="tax">+ $33,00 IVA</div>
-            </div>
-          </div>
-          <div class="price-row fade-up delay-1">
-            <div class="price-info">
-              <h3>Team Access – Acceso General x5</h3>
-              <p>Acceso general para 5 personas a IGNITE Summit, con acceso al Main Stage, al Satellite Stage y a la zona de networking, además de acceso a la app MT3 Attendee, para consultar la agenda y conectar con empresas y líderes empresariales.</p>
-            </div>
-            <div class="price-cost">
-              <div class="amount">$150,00</div>
-              <div class="tax">+ $22,50 IVA</div>
-            </div>
-          </div>
-          <div class="price-row fade-up delay-2">
-            <div class="price-info">
-              <h3>Team Access – Acceso General x10</h3>
-              <p>Acceso general para 10 personas a IGNITE Summit, con entrada al Main Stage, Satellite Stage y zona de networking, acceso a la app MT3 Attendee, para conectar con empresas, líderes empresariales y 1 pase de cortesía VIP Experience.</p>
-            </div>
-            <div class="price-cost">
-              <div class="amount">$300,00</div>
-              <div class="tax">+ $45,00 IVA</div>
-            </div>
-          </div>
-          <div class="price-row fade-up delay-3">
-            <div class="price-info">
-              <h3>Team Access – Acceso General x20</h3>
-              <p>Acceso general para 20 personas a IGNITE Summit, con entrada al Main Stage, Satellite Stage y zona de networking, acceso a la app MT3 Attendee para conectar con empresas, líderes empresariales y 2 pases de cortesía VIP Experience.</p>
-            </div>
-            <div class="price-cost">
-              <div class="amount">$600,00</div>
-              <div class="tax">+ $90,00 IVA</div>
-            </div>
-          </div>
-        </div>
-        <div class="pricing-cta fade-up delay-1">
-          <a href="https://www.buenplan.com.ec/event/ignite-summit-2026-quito" target="_blank" class="btn-main-buy">Comprar Entradas en BuenPlan</a>
+        <h2 class="fade-up">Alumni Synergy Forum</h2>
+        <p class="fade-up delay-1">Sesiones de Networking de impacto y rueda de negocios.</p>
+        <div class="fade-up delay-2">
+          <a href="mailto:egran@alumni.usfq.edu.ec" class="btn-main-buy">Mayor Información</a>
         </div>
       </div>
     </section>
   </main>
   
-  <footer>Ignite Summit 2026 · NEST.Lab USFQ</footer>
+  <footer>Ignite Summit 2026 · USFQ</footer>
 
   <script>
-    function switchStage(stage) {
-      document.querySelectorAll('.stage-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelector('.' + stage + '-btn').classList.add('active');
-
-      document.querySelectorAll('.agenda-row').forEach(row => {
-        if (row.classList.contains('track-shared')) {
-          row.style.display = 'grid'; 
-        } else if (row.classList.contains('track-' + stage)) {
-          row.style.display = 'grid'; 
-        } else {
-          row.style.display = 'none'; 
-        }
-      });
-      
-      document.querySelectorAll('.agenda-separator').forEach(sep => {
-          if (sep.classList.contains('track-shared')) {
-              sep.style.display = 'block';
-          }
-      });
-      
-      document.querySelectorAll('.agenda-row, .agenda-separator').forEach(el => {
-        el.classList.remove('visible');
-        setTimeout(() => el.classList.add('visible'), 50);
-      });
-    }
-
     document.addEventListener("DOMContentLoaded", function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
