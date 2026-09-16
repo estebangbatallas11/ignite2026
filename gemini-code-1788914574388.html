@@ -28,11 +28,11 @@
     .nav-links a { color: var(--black); text-decoration: none; font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 8px 10px; transition: all .2s; }
     .nav-links a:hover { color: var(--red); }
 
-    /* ====== HERO SECTION ====== */
-    .hero { 
-      min-height: 75vh; 
+    /* ====== PORTADA (HERO SECTION - MENOS ANCHA/ALTA) ====== */
+    header.hero { 
+      min-height: 55vh; 
       margin-top: 76px; 
-      padding: 6vw 5vw; 
+      padding: 4vw 5vw; 
       position: relative;
       display: flex; 
       flex-direction: column; 
@@ -44,7 +44,7 @@
       border-bottom: 1px solid var(--gray-border); 
     }
 
-    .hero::before { 
+    header.hero::before { 
       content: ""; 
       position: absolute; 
       top: -20%; 
@@ -55,7 +55,7 @@
       transform: skewX(-18deg); 
       z-index: 1; 
     }
-    .hero::after { 
+    header.hero::after { 
       content: ""; 
       position: absolute; 
       top: -20%; 
@@ -76,39 +76,73 @@
       align-items: center; 
     }
     
-    h1 { 
+    header.hero h1 { 
       font-family: Impact, "Arial Black", sans-serif; 
-      font-size: clamp(50px, 8vw, 100px); 
+      font-size: clamp(40px, 6vw, 75px); 
       text-transform: uppercase; 
       margin: 0; 
       line-height: 0.9; 
       letter-spacing: -1px; 
     }
-    h1 span { color: var(--red); }
+    header.hero h1 span { color: var(--red); }
     
     .hero-info { 
       display: flex; 
       justify-content: center; 
       flex-wrap: wrap; 
-      gap: 30px 50px; 
-      margin-top: 35px; 
+      gap: 20px 40px; 
+      margin-top: 25px; 
       font-weight: 900; 
-      font-size: 15px; 
+      font-size: 14px; 
     }
     .hero-info div { display: flex; flex-direction: column; align-items: center; }
-    .hero-info strong { color: var(--red); text-transform: uppercase; font-size: 11px; letter-spacing: 1px; margin-bottom: 6px; }
+    .hero-info strong { color: var(--red); text-transform: uppercase; font-size: 10px; letter-spacing: 1px; margin-bottom: 4px; }
 
-    /* ====== SECCIONES BASE ====== */
+    /* ====== SECCIONES ======  */
     section { width: min(1180px, 90vw); margin: 0 auto; padding: 45px 0; }
     h2 { font-family: Impact, sans-serif; font-size: clamp(32px, 5vw, 60px); text-transform: uppercase; margin: 0 0 20px 0; }
 
-    /* ====== FORMATO SPEAKERS ====== */
-    .speakers-list-container { display: flex; flex-direction: column; gap: 10px; }
-    .speaker-row { display: grid; grid-template-columns: 280px 1fr; gap: 10px; }
-    .speaker-name-col { background-color: var(--red); color: var(--white); display: flex; align-items: center; justify-content: center; padding: 15px; font-size: 14px; font-weight: bold; text-align: center; word-break: break-word; }
-    .speaker-info-col { background-color: var(--agenda-bg-gray); padding: 15px 20px; display: flex; flex-direction: column; justify-content: center; border-left: 4px solid transparent; transition: border-color 0.3s; }
-    .speaker-row:hover .speaker-info-col { border-left-color: var(--red); }
-    .speaker-role-text { font-size: 14px; color: var(--text-soft); line-height: 1.5; word-break: break-word; margin: 0; }
+    /* ====== AGENDA & STAGES ====== */
+    .agenda-section { width: min(1180px, 90vw); margin: 0 auto; padding: 60px 0; }
+    .agenda-title { font-family: Impact, sans-serif; font-size: clamp(32px, 5vw, 55px); text-transform: uppercase; margin-bottom: 25px; }
+    
+    .stage-tabs { display: flex; gap: 10px; margin-bottom: 30px; }
+    .stage-tab { background-color: var(--black); color: var(--white); font-weight: bold; text-transform: uppercase; font-size: 13px; padding: 12px 24px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background .2s; }
+    .stage-tab.inactive { background-color: var(--red); opacity: 0.8; }
+    .stage-tab.inactive:hover { opacity: 1; }
+    .stage-tab:hover { background-color: var(--dark-red); }
+
+    .stage-content { display: none; }
+    .stage-content.active { display: flex; flex-direction: column; gap: 10px; }
+
+    .agenda-row { display: grid; grid-template-columns: 240px 1fr; gap: 10px; align-items: stretch; }
+    .agenda-time-col { background-color: var(--red); color: var(--white); display: flex; align-items: center; justify-content: center; padding: 18px; font-size: 14px; font-weight: bold; text-align: center; }
+    .agenda-info-col { background-color: var(--agenda-bg-gray); padding: 18px 24px; display: flex; flex-direction: column; justify-content: center; border-left: 4px solid transparent; transition: border-color 0.3s; }
+    .agenda-row:hover .agenda-info-col { border-left-color: var(--red); }
+    
+    .agenda-section-header { background-color: var(--agenda-teal); color: var(--white); padding: 16px 24px; font-family: Impact, sans-serif; font-size: 20px; text-align: center; letter-spacing: 1px; text-transform: uppercase; margin: 10px 0; }
+    
+    .agenda-item-title { font-size: 15px; font-weight: bold; color: var(--black); margin: 0 0 6px 0; }
+    .agenda-item-desc { font-size: 14px; color: var(--text-soft); margin: 0; line-height: 1.6; }
+    .agenda-item-desc strong { color: var(--black); }
+    
+    /* Listas limpias sin viñetas de puntos */
+    .agenda-list-clean {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .agenda-list-clean li {
+      margin-bottom: 6px;
+    }
+    .agenda-list-clean li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Espaciado estructurado para paneles */
+    .panel-block { margin-bottom: 12px; }
+    .panel-block:last-child { margin-bottom: 0; }
+    .panel-subtitle { font-weight: bold; color: var(--black); margin-top: 10px; margin-bottom: 4px; display: block; }
 
     /* ====== FORMATO PANELES (LOGOS EN 3 COLUMNAS) ====== */
     .logos-container {
@@ -193,13 +227,13 @@
       .nav { padding: 0 4vw; height: 68px; justify-content: center; }
       .nav-links a { font-size: 10px; padding: 6px 6px; }
       
-      .hero { margin-top: 68px; padding: 10vw 6vw; min-height: 60vh; }
-      .hero-info { gap: 20px 30px; font-size: 14px; }
+      header.hero { margin-top: 68px; padding: 8vw 6vw; min-height: 50vh; }
+      .hero-info { gap: 15px 30px; font-size: 13px; }
       
-      section { padding: 40px 0; }
+      section, .agenda-section { padding: 40px 0; }
       
-      .speaker-row { grid-template-columns: 1fr; gap: 4px; }
-      .speaker-name-col { padding: 12px; justify-content: flex-start; text-align: left; }
+      .agenda-row { grid-template-columns: 1fr; gap: 4px; }
+      .agenda-time-col { padding: 12px; justify-content: flex-start; text-align: left; }
     }
   </style>
 </head>
@@ -207,14 +241,15 @@
 
   <nav class="nav">
     <div class="nav-links">
-      <a href="#externos">Featured Speakers</a>
-      <a href="#usfq">Speakers USFQ</a>
+      <a href="#agenda">Agenda</a>
       <a href="#paneles">Paneles Temáticos</a>
       <a href="#alumni">Alumni Synergy Forum</a>
     </div>
   </nav>
   
-  <!-- HERO LIMPIO, CENTRADO Y DINÁMICO (SIN FOTO DE FONDO) -->
+  <!-- ========================================== -->
+  <!-- 1. PORTADA DEL EVENTO (HERO SECTION MENOS ANCHA) -->
+  <!-- ========================================== -->
   <header class="hero">
     <div class="hero-content">
       <h1 class="fade-up delay-1">
@@ -239,145 +274,348 @@
     </div>
   </header>
   
+  <!-- ========================================== -->
+  <!-- 2. SECCIONES DE CONTENIDO DE LA PÁGINA     -->
+  <!-- ========================================== -->
   <main>
-    <!-- ====== SECCIÓN FEATURED SPEAKERS ====== -->
-    <section id="externos">
-      <h2 class="fade-up">Featured Speakers</h2>
+    <!-- SECCIÓN: AGENDA (CON PESTAÑAS INTERACTIVAS MAIN / SATELLITE) -->
+    <section id="agenda" class="agenda-section">
+      <h2 class="agenda-title fade-up">Agenda</h2>
       
-      <div class="speakers-list-container">
+      <div class="stage-tabs fade-up">
+        <button class="stage-tab" onclick="switchStage('main', event)">Produbanco Main Stage</button>
+        <button class="stage-tab inactive" onclick="switchStage('satellite', event)">United Satellite Stage</button>
+      </div>
+
+      <!-- PRODUBANCO MAIN STAGE -->
+      <div id="main-stage" class="stage-content active">
         
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Vanessa Camargo</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Product Marketing Manager de <strong>Google</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">8:00 a.m. – 8:30 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Inicio de registro</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Gonzalo Belenguer</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Director General de <strong>REDIT-Red de Institutos Tecnológicos de la Comunitat Valenciana. España</strong></p>
+        <div class="agenda-section-header">APERTURA DEL SUMMIT</div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">8:30 a.m. – 9:00 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Apertura del Summit y palabras de bienvenida.</p>
+            <p class="agenda-item-desc">👤 <strong>Diego Quiroga</strong>, Rector de la Universidad San Francisco de Quito</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Juan Esteban Jijón</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Vicepresidente de Segmento Pyme de <strong>PRODUBANCO - Grupo Promerica</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">9:00 a.m. – 9:30 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Main Keynote</p>
+            <p class="agenda-item-desc">👤 <strong>Carlos Montúfar</strong>, Presidente del Consejo de Regentes de la Universidad San Francisco de Quito</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Kurt Freund Ruf</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Presidente de la <strong>Cámara de Innovación y Comercio Ecuador de Israel (CICEI)</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">9:30 a.m. – 10:15 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Panel</p>
+            <p class="agenda-item-desc">Cámara de Industrias y Producción (CIP)</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Diego Gordón Santana</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Director Ejecutivo en <strong>Cámara Ecuatoriano Británica (BRITCHAM)</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">10:15 a.m. – 11:00 a.m.</div>
+          <div class="agenda-info-col">
+            <div class="panel-block">
+              <p class="agenda-item-title">Cámara de Innovación y Comercio Ecuatoriano-Israelí</p>
+              <p class="agenda-item-desc" style="color: var(--black); font-weight: bold;">Puentes que producen: Cómo convertir la relación Ecuador-Israel en negocio, innovación y acceso a mercados</p>
+            </div>
+            
+            <div class="panel-block">
+              <span class="panel-subtitle">Panelistas:</span>
+              <ul class="agenda-item-desc agenda-list-clean">
+                <li>👤 <strong>Amital Perry</strong>, Embajadora de Israel en Ecuador y Directora interina del Departamento de América del Sur de la División para América Latina y el Caribe de la Cancillería israelí.</li>
+                <li>👤 <strong>Claudio Cortés</strong>, Fundador y Presidente del Conglomerado Radical; Director para Latinoamérica de la Asociación Internacional de Ciberseguridad (ASICI) y miembro del Directorio de CICEI. Quito, Ecuador.</li>
+                <li>👤 <strong>Andrés Caicedo</strong>, Ph.D., Profesor Asociado de la Escuela de Medicina de la Universidad San Francisco de Quito, Director de iBiomed y Vicepresidente Regional para South & Central America de la International Society for Cell & Gene Therapy (ISCT). Quito, Ecuador.</li>
+              </ul>
+            </div>
+
+            <div class="panel-block">
+              <span class="panel-subtitle">Modera:</span>
+              <ul class="agenda-item-desc agenda-list-clean">
+                <li>👤 <strong>Kurt Freund Ruf</strong>, Ph.D., DIC., Presidente de la Cámara de Innovación y Comercio Ecuador–Israelí (CICEI).</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Amital Perry</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Embajadora de <strong>Israel en Ecuador</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">11:00 a.m. – 11:30 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Featured Keynote</p>
+            <p class="agenda-item-desc">👤 <strong>Juan Esteban Jijón</strong>, Vicepresidente | Segmento Pyme de PRODUBANCO - Grupo Promerica</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Carlos Alfonso Valenzuela</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">General Manager - Representante Legal de <strong>Hydro Industries</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">11:30 a.m. – 12:15 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Panel</p>
+            <p class="agenda-item-desc">Cámara de Comercio Ecuatoriano-Americana (AMCHAM)</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Claudio Cortés</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">CEO de <strong>Grupo Radical</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">12:15 p.m. – 12:45 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Main Keynote</p>
+            <p class="agenda-item-desc">👤 <strong>Pablo Lucio Paredes</strong>, Director Instituto de Economía de la Universidad San Francisco de Quito.</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Oswal Mundarain</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Gerente de Mantenimiento de <strong>Aeropuerto Ecológico de Galápagos</strong></p>
+        <div class="agenda-section-header">12:45 p.m. – 2:00 p.m. ALMUERZO Y ESPACIOS DE CONEXIÓN</div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">2:00 p.m. – 2:45 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Panel por anunciar próximamente</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Paulo López</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">CEO de <strong>SolarTeam</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">2:45 p.m. – 3:30 p.m.</div>
+          <div class="agenda-info-col">
+            <div class="panel-block">
+              <p class="agenda-item-title">Cámara de Industrias y Comercio Ecuatoriano-Británica (BRITCHAM)</p>
+              <p class="agenda-item-desc" style="color: var(--black); font-weight: bold;">Energía Renovable y Gestión del Agua</p>
+            </div>
+
+            <div class="panel-block">
+              <span class="panel-subtitle">Panelistas:</span>
+              <ul class="agenda-item-desc agenda-list-clean">
+                <li>👤 <strong>Pablo López</strong>, CEO de SolarTeam.</li>
+                <li>👤 <strong>Carlos Alfonso Valenzuela Muñoz</strong>, General Manager y Representante Legal de Hydro Industries.</li>
+                <li>👤 <strong>Oswal Mundarain</strong>, Gerente de Mantenimiento e Infraestructura del Aeropuerto Ecológico de Galápagos y Terminal de Cargas del Ecuador.</li>
+              </ul>
+            </div>
+
+            <div class="panel-block">
+              <span class="panel-subtitle">Modera:</span>
+              <ul class="agenda-item-desc agenda-list-clean">
+                <li>👤 <strong>Diego Gordón Santana</strong>, Director Ejecutivo de la Cámara Ecuatoriano Británica (BritCham).</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">David Wood</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Fundador y presidente de <strong>For The Future of Guangaje Ecuador</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">3:30 p.m. – 4:15 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">International Main Keynote</p>
+            <p class="agenda-item-desc">👤 <strong>Gonzalo Belenguer</strong>, Director General, REDIT-Red de Institutos Tecnológicos de la Comunitat Valenciana. España</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Maggie Crespo</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Gerente de Comunicación Corporativa y Sostenibilidad de <strong>Metropolitan Touring</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">4:15 p.m. – 5:00 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Main Keynote</p>
+            <p class="agenda-item-desc">Cámara Nacional de Acuacultura</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Gabriela Suárez Buitrón</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Directora Ejecutiva de <strong>Grupo Faro</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">5:00 p.m. – 5:30 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Ponente por anunciar próximamente</p>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">5:30 p.m. – 6:00 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Panel</p>
+            <p class="agenda-item-desc">Cámara de Minería del Ecuador (CME)</p>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">6:00 p.m. – 6:45 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">International Main Keynote</p>
+            <p class="agenda-item-desc">👤 <strong>Vanessa Camargo</strong>, Product Marketing Manager - Google AI Community de Google. Brasil</p>
+          </div>
+        </div>
+
+        <div class="agenda-section-header">CIERRE DEL SUMMIT</div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">6:45 p.m. – 7:00 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Palabras de Cierre</p>
+            <p class="agenda-item-desc">👤 <strong>Franklin Velasco</strong>, Director de Relación con la Empresa de la Universidad San Francisco de Quito</p>
           </div>
         </div>
 
       </div>
-    </section>
 
-    <!-- ====== SECCIÓN SPEAKERS USFQ ====== -->
-    <section id="usfq">
-      <h2 class="fade-up">Speakers USFQ</h2>
-      
-      <div class="speakers-list-container">
+      <!-- UNITED SATELLITE STAGE -->
+      <div id="satellite-stage" class="stage-content">
         
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Carlos Montúfar</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Presidente del Consejo de Regentes de la <strong>Universidad San Francisco de Quito</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">8:00 a.m. – 8:30 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Inicio de registro</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Pablo Lucio Paredes</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Director Instituto de Economía de la <strong>Universidad San Francisco de Quito</strong></p>
+        <div class="agenda-section-header">Apertura del Summit</div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">8:30 a.m. – 9:00 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">PRODUBANCO MAIN STAGE</p>
+            <p class="agenda-item-desc">👤 <strong>Diego Quiroga</strong>, Rector de la Universidad San Francisco de Quito</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Marisol Bahamonde Poveda</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Vicedecana de Medicina de la <strong>Universidad San Francisco de Quito</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">9:00 a.m. – 9:30 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">PRODUBANCO MAIN STAGE</p>
+            <p class="agenda-item-desc">👤 <strong>Carlos Montúfar</strong>, Presidente del Consejo de Regentes de la Universidad San Francisco de Quito</p>
           </div>
         </div>
 
-        <div class="speaker-row fade-up">
-          <div class="speaker-name-col">Andrés Caicedo</div>
-          <div class="speaker-info-col">
-            <p class="speaker-role-text">Director del Laboratorio BioMed, Escuela de Medicina de la <strong>Universidad San Francisco de Quito</strong></p>
+        <div class="agenda-row">
+          <div class="agenda-time-col">9:45 a.m. – 10:15 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Panel por anunciar próximamente</p>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">10:15 a.m. – 11:00 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Panel</p>
+            <p class="agenda-item-desc">Asociación Ecuatoriana de Capital Privado (ECUACAP)</p>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">11:00 a.m. – 11:45 a.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">International Main Keynote por anunciar próximamente</p>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">11:45 a.m. – 12:30 p.m.</div>
+          <div class="agenda-info-col">
+            <div class="panel-block">
+              <p class="agenda-item-title">From Knowledge to Territory</p>
+            </div>
+            
+            <div class="panel-block">
+              <span class="panel-subtitle">Panelistas:</span>
+              <ul class="agenda-item-desc agenda-list-clean">
+                <li>👤 <strong>David Wood</strong>, Fundador y presidente de For The Future of Guangaje Ecuador</li>
+                <li>👤 <strong>Gabriela Suárez Buitrón</strong>, Directora Ejecutiva Grupo Faro</li>
+                <li>👤 <strong>Maggie Crespo</strong>, Gerente de Comunicación Corporativa y Sostenibilidad de Metropolitan Touring</li>
+              </ul>
+            </div>
+
+            <div class="panel-block">
+              <span class="panel-subtitle">Modera:</span>
+              <ul class="agenda-item-desc agenda-list-clean">
+                <li>👤 <strong>Marisol Bahamonde Poveda</strong>, Vicedecana de Medicina de la Universidad San Francisco de Quito</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="agenda-section-header">12:30 p.m. – 2:00 p.m. ALMUERZO Y ESPACIOS DE CONEXIÓN</div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">2:00 p.m. – 2:45 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Featured Keynote</p>
+            <p class="agenda-item-desc">SERTECPEC</p>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">2:45 p.m. – 3:15 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Featured Keynote</p>
+            <p class="agenda-item-desc">👤 <strong>Belén Carrión</strong>, Head of People en DeUna</p>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">3:15 p.m. – 4:00 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Featured Keynote</p>
+            <p class="agenda-item-desc">North Highland</p>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">4:15 p.m. – 5:00 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">Panel</p>
+            <p class="agenda-item-desc">Cámara De La Pequeña Y Mediana Empresa De Pichincha (CAPEIPI)</p>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">5:00 p.m. – 5:45 p.m.</div>
+          <div class="agenda-info-col">
+            <div class="panel-block">
+              <p class="agenda-item-title">Capital con Impacto: Cómo construir en Ecuador un mercado de inversión que combine retorno, impacto y desarrollo</p>
+            </div>
+
+            <div class="panel-block">
+              <span class="panel-subtitle">Panelistas:</span>
+              <ul class="agenda-item-desc agenda-list-clean">
+                <li>👤 <strong>Michelle Arévalo-Carpenter</strong>, Cofundadora y Gerente Social, IMPAQTO Capital</li>
+                <li>👤 <strong>Corinne Lebrun</strong>, Gerente de Inversiones para Latinoamérica en Investress.</li>
+                <li>👤 <strong>Martha González</strong>, Gerente General de la Bolsa de Valores de Guayaquil</li>
+              </ul>
+            </div>
+
+            <div class="panel-block">
+              <span class="panel-subtitle">Modera:</span>
+              <ul class="agenda-item-desc agenda-list-clean">
+                <li>👤 <strong>Inka Mattila</strong>, Representante Residente del Programa de las Naciones Unidas para el Desarrollo (PNUD), Ecuador</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">6:00 p.m. – 6:45 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">PRODUBANCO MAIN STAGE</p>
+            <p class="agenda-item-desc">👤 <strong>Vanessa Camargo</strong>, Product Marketing Manager - Google AI Community de Google. Brasil</p>
+          </div>
+        </div>
+
+        <div class="agenda-section-header">Cierre del Summit</div>
+
+        <div class="agenda-row">
+          <div class="agenda-time-col">6:45 p.m. – 7:00 p.m.</div>
+          <div class="agenda-info-col">
+            <p class="agenda-item-title">PRODUBANCO MAIN STAGE</p>
+            <p class="agenda-item-desc">👤 <strong>Franklin Velasco</strong>, Director de Relación con la Empresa de la Universidad San Francisco de Quito</p>
           </div>
         </div>
 
       </div>
+
     </section>
 
-    <!-- ====== SECCIÓN PANELES TEMÁTICOS (LOGOS EN 3 COLUMNAS) ====== -->
+    <!-- SECCIÓN: PANELES TEMÁTICOS -->
     <section id="paneles">
       <h2 class="fade-up">Paneles Temáticos</h2>
       
@@ -421,7 +659,7 @@
       </div>
     </section>
 
-    <!-- ====== SECCIÓN ALUMNI SYNERGY FORUM ====== -->
+    <!-- SECCIÓN: ALUMNI SYNERGY FORUM -->
     <section id="alumni" class="dark-section">
       <div class="container">
         <h2 class="fade-up">Alumni Synergy Forum</h2>
@@ -436,6 +674,24 @@
   <footer>Ignite Summit 2026 · USFQ</footer>
 
   <script>
+    // Función interactiva para alternar entre stages (Main / Satellite)
+    function switchStage(stageName, event) {
+      const mainStage = document.getElementById('main-stage');
+      const satelliteStage = document.getElementById('satellite-stage');
+      const buttons = document.querySelectorAll('.stage-tab');
+
+      buttons.forEach(btn => btn.classList.add('inactive'));
+      event.target.classList.remove('inactive');
+
+      if (stageName === 'main') {
+        mainStage.classList.add('active');
+        satelliteStage.classList.remove('active');
+      } else {
+        satelliteStage.classList.add('active');
+        mainStage.classList.remove('active');
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
